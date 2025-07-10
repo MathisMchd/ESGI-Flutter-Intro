@@ -14,9 +14,22 @@ class Post extends StatelessWidget {
   Widget build(BuildContext context) {
     void onHeaderPressed() {
       showDialog(
-          context: context,
-          builder:  (BuildContext context) => Dialog()
-      )
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Tu as trouvé le dialog'),
+            content: const Text('Ceci est le contenu du ialog. Cherche encore il y a un scaffold'),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Fermer'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
     return Column(
       children: [

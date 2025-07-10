@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intro_flutter/component/activity_section_liked.dart';
+import 'package:intro_flutter/component/profil_bottomsheet.dart';
 import 'package:intro_flutter/component/tiles/long_tile.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -18,6 +19,20 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: Column(
         children: [
+          LongTile(
+            title: 'Afficher mon profil',
+            icon: Icons.verified_user,
+            onTap: () {
+              showBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Profilebottomsheet();
+                  }
+              );
+              // marche pas car je fait pas le show
+              //Profilebottomsheet();
+            },
+          ),
           LongTile(
             title: 'Enregistrement',
             icon: Icons.bookmark_border,
